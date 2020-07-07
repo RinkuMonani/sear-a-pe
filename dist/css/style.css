@@ -160,11 +160,15 @@ body {
   background-color: #F9F5F3;
   display: flex;
   align-items: center;
-  justify-content: space-between; }
-  .header__logo {
-    margin-left: 4rem;
-    height: 4.5rem;
-    display: block; }
+  justify-content: space-between; 
+}
+
+.header__logo {
+  margin-left: 2rem;
+  height: 25rem;
+  display: block; 
+
+}
 
 .search {
   background-color: #fff;
