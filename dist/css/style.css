@@ -19,7 +19,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   color: #655A56;
-  background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+  background-image: linear-gradient(to right bottom, #eebe45, #db665e);
   background-size: cover;
   background-repeat: no-repeat;
   min-height: calc(100vh - 2 * 4vw); }
@@ -42,7 +42,7 @@ body {
       border-radius: 0; } }
 
 .btn, .btn-small, .btn-small:link, .btn-small:visited {
-  background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+  background-image: linear-gradient(to right bottom, #eebe45, #db665e);
   border-radius: 10rem;
   border: none;
   text-transform: uppercase;
@@ -94,7 +94,7 @@ body {
   .btn-inline span {
     margin: 0 .4rem; }
   .btn-inline:hover {
-    color: #F48982;
+    color: #db665e;
     background-color: #F2EFEE; }
   .btn-inline:focus {
     outline: none; }
@@ -124,7 +124,7 @@ body {
 .heading-2 {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #F59A83;
+  color: #db665e;
   text-transform: uppercase;
   margin-bottom: 2.5rem;
   text-align: center;
@@ -145,7 +145,7 @@ body {
   .loader svg {
     height: 5.5rem;
     width: 5.5rem;
-    fill: #F59A83;
+    fill: #db665e;
     transform-origin: 44% 50%;
     animation: rotate 1.5s infinite linear; }
 
@@ -157,7 +157,7 @@ body {
 
 .header {
   grid-area: head;
-  background-color: #F9F5F3;
+  background-color:#c2b5b5;
   display: flex;
   align-items: center;
   justify-content: space-between; 
@@ -167,7 +167,7 @@ body {
   margin-left: 2rem;
   height: 25rem;
   display: block; 
-
+  margin-top: 2px;
 }
 
 .search {
@@ -210,7 +210,7 @@ body {
     visibility: visible;
     opacity: 1; }
   .likes__icon {
-    fill: #F59A83;
+    fill: #e06960;
     height: 3.75rem;
     width: 3.75rem; }
   .likes__panel {
@@ -243,7 +243,7 @@ body {
     text-decoration: none; }
   .results__link:hover,
   .likes__link:hover {
-    background-color: #F9F5F3;
+    background-color: #e4d2d2; 
     transform: translateY(-2px); }
   .results__link--active,
   .likes__link--active {
@@ -278,9 +278,9 @@ body {
   .results__name,
   .likes__name {
     font-size: 1.3rem;
-    color: #F59A83;
+    color: #F48982;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 700;
     margin-bottom: .3rem; }
   .results__author,
   .likes__author {
@@ -306,7 +306,7 @@ body {
     float: right; }
 
 .recipe {
-  background-color: #F9F5F3;
+  background-color: #c2b5b5;
   border-top: 1px solid #fff; }
   .recipe__fig {
     height: 30rem;
@@ -321,7 +321,7 @@ body {
       position: absolute;
       top: 0;
       left: 0;
-      background-image: linear-gradient(to right bottom, #FBDB89, #F48982);
+      background-image: linear-gradient(to right bottom, #eebe45, #db665e);
       opacity: .6; }
   .recipe__img {
     width: 100%;
@@ -344,7 +344,7 @@ body {
       -webkit-box-decoration-break: clone;
       box-decoration-break: clone;
       padding: 1.3rem 2rem;
-      background-image: linear-gradient(to right bottom, #FBDB89, #F48982); }
+      background-image: linear-gradient(to right bottom, #eebe45, #db665e);}
   .recipe__details {
     display: flex;
     align-items: center;
