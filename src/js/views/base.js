@@ -2,7 +2,8 @@ export const elements = {
     searchInput: document.querySelector('.search__field'),
     searchForm: document.querySelector('.search'),
     searchResultList: document.querySelector('.results__list'),
-    searchResults: document.querySelector('.results')
+    searchResults: document.querySelector('.results'),
+    searchPages: document.querySelector('.results__pages')
 };
 
 export const elementStrings = {
@@ -10,8 +11,6 @@ export const elementStrings = {
 }
 
 export const renderLoader = parent => {
-    console.log("parent");
-    console.log(parent);
     const loader = `
         <div class="${elementStrings.loader}">
             <svg>
@@ -26,6 +25,6 @@ export const renderLoader = parent => {
 export const stopLoader = () => {
     const loader = document.querySelector(`.${elementStrings.loader}`);
     if(loader){
-        loader.parentElement.removeChild(loader);
+        loader.parentNode.removeChild(loader);
     }
 }

@@ -22,8 +22,6 @@ const controlSearch = async () => {
 
         // 3. Prepare UI for results
         searchView.clearResultList();
-        console.log("elements")
-        console.log(elements.searchResults);
         renderLoader(elements.searchResults);
 
         // 4. Search for recipes
@@ -44,4 +42,14 @@ elements.searchForm.addEventListener('submit', e =>{
     controlSearch();
 });
 
+elements.searchPages.addEventListener('click', e => {
+    const btn = e.target.closest('.btn-inline');
+    // console.log(btn);
+    if(btn){
+        searchView.clearResultList();
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.renderResults(state.search.recipes, goToPage);
+        console.log(goToPage); 
+    }
+});
 // search.getResult();

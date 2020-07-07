@@ -17,13 +17,10 @@ const limitRecipeTitle = (title, limit = 17) => {
         return `${newTitle.join(' ')}...`;
     }
 
-    console.log(title);
     return title;
 }
 const renderRecipe = recipe => {
 
-    console.log('RECEPIE');
-    console.log(recipe);
     const markup = `
         <li>
             <a class="results__link" href="${recipe.recipe_id}">
@@ -41,8 +38,55 @@ const renderRecipe = recipe => {
     elements.searchResultList.insertAdjacentHTML('beforeend', markup);
 
 }
-export const renderResults = recipes => {
-    recipes.forEach(renderRecipe);
+
+const createButton = (page, type) => `
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page-1 : page+1}>
+        <span>Page ${type === 'prev' ? page-1 : page+1}</span>
+        <svg class="search__icon">
+            <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
+        </svg>
+        
+        
+    </button>
+`;
+
+const renderPageButtons = (page, totalResults, resultsPerPage) => {
+    const numOfPages = Math.ceil(totalResults / resultsPerPage);
+
+    let button;
+
+    if(page === 1 && numOfPages > 1){
+        // display only next button
+        button = createButton(page, 'next');
+    }
+    else if(page === numOfPages){
+        // display only prev button
+        button = createButton(page, 'prev');
+    }
+    else if (page < numOfPages){
+        // display both net and prev
+        button = `
+        ${createButton(page, 'prev')}
+        ${createButton(page, 'next')}
+        `;
+    }
+
+    elements.searchPages.insertAdjacentHTML('afterbegin', button);
+    
+};
+
+export const renderResults = (recipes, page=1, resultsPerPage=10) => {
+
+    // render results of current page
+    const start=(page - 1) * resultsPerPage;
+    const end=page * resultsPerPage;
+    recipes.slice(start, end).forEach(renderRecipe);
+
+    //render pagination buttons
+    renderPageButtons(page, recipes.length, resultsPerPage);
+
+
+    // recipes.forEach(renderRecipe);
 }
 
 export const clearInput = () => {
@@ -51,4 +95,5 @@ export const clearInput = () => {
 
 export const clearResultList = () => {
     elements.searchResultList.innerHTML = '';
+    elements.searchPages.innerHTML = '';
 }
