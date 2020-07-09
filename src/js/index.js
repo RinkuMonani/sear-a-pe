@@ -98,7 +98,7 @@ const controlRecipe = async () => {
 
             console.log("recipe");
             console.log(state.recipe);
-            stopLoader();
+            // stopLoader();
             recipeView.renderRecipe(state.recipe);
         }
         catch(error){
