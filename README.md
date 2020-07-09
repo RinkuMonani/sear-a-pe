@@ -7,7 +7,7 @@ Example Seach:
 * Pasta
 
 Thanks to Jonas Schmedtmann for designing the amazing UI and for guiding through the development of this project via. his 
-[Course](https://www.udemy.com/course/the-complete-javascript-course/) on **Udemy**
+[Course](https://www.udemy.com/course/the-complete-javascript-course/) on **Udemy**.
 
 Checkout the app on [Github Pages](https://rinkumonani.github.io/sear-a-pe/dist/index.html)
 
