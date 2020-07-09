@@ -18,8 +18,8 @@ const state = {};
 */
 const controlSearch = async () => {
     // 1. get query from view
-    // const query = searchView.getInput();
-    const query = 'pizza';
+    const query = searchView.getInput();
+    // const query = 'pizza';
     
     if(query){
         //2. create new search object
@@ -41,12 +41,11 @@ const controlSearch = async () => {
     }
 }
 
-window.addEventListener('load', e =>{
-    e.preventDefault();
-    controlSearch();
-});
+// window.addEventListener('load', e =>{
+//     e.preventDefault();
+//     controlSearch();
+// });
 
-//TESTING
 elements.searchForm.addEventListener('submit', e =>{
     e.preventDefault();
     controlSearch();
