@@ -18,7 +18,8 @@ const state = {};
 */
 const controlSearch = async () => {
     // 1. get query from view
-    const query = searchView.getInput();
+    // const query = searchView.getInput();
+    const query = 'pizza';
     
     if(query){
         //2. create new search object
@@ -40,10 +41,17 @@ const controlSearch = async () => {
     }
 }
 
+window.addEventListener('load', e =>{
+    e.preventDefault();
+    controlSearch();
+});
+
+//TESTING
 elements.searchForm.addEventListener('submit', e =>{
     e.preventDefault();
     controlSearch();
 });
+
 
 elements.searchPages.addEventListener('click', e => {
     const btn = e.target.closest('.btn-inline');
@@ -61,7 +69,39 @@ elements.searchPages.addEventListener('click', e => {
     RECIPE CONTROLLER
 */
 
-// const newRecipe = new Recipe(47025123);
-// newRecipe.getRecipe();
-// console.log("OBJECT");
-// console.log(newRecipe);
+const controlRecipe = async () => {
+    
+    //  get id from url
+    const id = window.location.hash.replace('#','');
+
+    if(id){
+        // prepare ui for changes
+
+        //  create new recipe object
+        state.recipe = new Recipe(id);
+        window.r = state.recipe;
+    
+        try{
+            // get recipe data
+            await state.recipe.getRecipe();
+    
+            // calctime and calcServings
+            state.recipe.calculateTime();
+            state.recipe.calculateServings();
+
+            // render results on UI
+            console.log(state.recipe);
+        }
+        catch(error){
+            alert(`Error processing recipe.`);
+        }
+        
+
+    }
+    
+};
+
+// window.addEventListener('hashchange',controlRecipe);
+// window.addEventListener('load',controlRecipe);
+
+['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
