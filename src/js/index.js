@@ -71,6 +71,7 @@ elements.searchPages.addEventListener('click', e => {
 
 const controlRecipe = async () => {
     
+    renderLoader(elements.recipe);
     //  get id from url
     const id = window.location.hash.replace('#','');
 
