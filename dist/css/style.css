@@ -157,17 +157,17 @@ body {
 
 .header {
   grid-area: head;
-  background-color:#c2b5b5;
+  background-color:#d1c3c3a2;
   display: flex;
   align-items: center;
   justify-content: space-between; 
 }
 
 .header__logo {
-  margin-left: 2rem;
-  height: 25rem;
+  margin-left: 4rem;
+  height: 9rem;
   display: block; 
-  margin-top: 2px;
+  margin-top: 6px;
 }
 
 .search {
@@ -175,7 +175,7 @@ body {
   border-radius: 10rem;
   display: flex;
   align-items: center;
-  padding-left: 3rem;
+  padding-left: 4rem;
   transition: all .3s; }
   .search:focus-within {
     transform: translateY(-2px);
@@ -306,7 +306,7 @@ body {
     float: right; }
 
 .recipe {
-  background-color: #c2b5b5;
+  background-color: #d1c3c3a2;
   border-top: 1px solid #fff; }
   .recipe__fig {
     height: 30rem;
