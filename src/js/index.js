@@ -71,15 +71,14 @@ elements.searchPages.addEventListener('click', e => {
 
 const controlRecipe = async () => {
     
-    renderLoader(elements.recipe);
     //  get id from url
     const id = window.location.hash.replace('#','');
 
     if(id){
         // prepare ui for changes
         renderLoader(elements.recipe);
-        console.log("LOADING");
-        recipeView.clearRecipe();
+        
+        recipeView.clearRecipe(); //this also clears the loader
 
         //  create new recipe object
         state.recipe = new Recipe(id);
@@ -98,9 +97,10 @@ const controlRecipe = async () => {
 
             // render results on UI
 
-            console.log("recipe");
-            console.log(state.recipe);
-            // stopLoader();
+            // console.log("recipe");
+            // console.log(state.recipe);
+            stopLoader();
+            
             recipeView.renderRecipe(state.recipe);
         }
         catch(error){
