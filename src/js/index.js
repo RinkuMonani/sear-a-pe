@@ -80,9 +80,14 @@ const controlRecipe = async () => {
         
         recipeView.clearRecipe(); //this also clears the loader
 
+        // highlight the selected recipe
+        if(state.search)
+            searchView.highlightSelected(id);
+
         //  create new recipe object
         state.recipe = new Recipe(id);
         // window.r = state.recipe;
+        // console.log(state.recipe);
     
         try{
             // get recipe data
@@ -112,7 +117,21 @@ const controlRecipe = async () => {
     
 };
 
-// window.addEventListener('hashchange',controlRecipe);
-// window.addEventListener('load',controlRecipe);
-
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
+
+// handling recipe button clicks
+
+elements.recipe.addEventListener('click', e => {
+    if(e.target.matches('.btn--decrease, .btn-decrease *')){
+        // decrease button is clicked
+        if(state.recipe.servings > 1)
+            state.recipe.updateServings('dec');
+    }
+    else if(e.target.matches('.btn--increase, .btn-increase *')){
+        // increase button is clicked
+        state.recipe.updateServings('inc');
+    }
+    recipeView.updateServingsIngredients(state.recipe);
+
+    console.log(state.recipe);
+});
