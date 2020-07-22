@@ -2,7 +2,7 @@ import {elements} from './base';
 
 export const getInput = () => elements.searchInput.value;
 
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
     
     const newTitle = [];
 

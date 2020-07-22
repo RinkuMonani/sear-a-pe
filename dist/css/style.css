@@ -202,7 +202,9 @@ body {
     display: flex;
     align-items: center;
     height: 100%;
-    transition: all .3s; }
+    transition: all .3s; 
+    visibility: hidden;
+    }
     .likes__field:hover {
       background-color: #F2EFEE; }
   .likes__panel:hover,
