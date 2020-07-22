@@ -3,6 +3,8 @@ import { elements, renderLoader, stopLoader } from './views/base';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView';
 import Recipe from './models/Recipe';
+import List from './models/List';
+import * as listView from './views/listView';
 
 /* 
 GLOBAL STATE OF THE APP
@@ -12,6 +14,7 @@ GLOBAL STATE OF THE APP
 - liked recipes
 */
 const state = {};
+window.state = state;
 
 
 /*
@@ -119,19 +122,80 @@ const controlRecipe = async () => {
 
 ['hashchange', 'load'].forEach(event => window.addEventListener(event, controlRecipe));
 
-// handling recipe button clicks
+const controlShoppingList = () => {
+    
+    // create a new list if does not exist aleady
+    if(!state.list){
+        state.list = new List();
+    }
 
+    // clear the existing list
+
+    // add each ingredient to the list
+    state.recipe.ingredients.forEach(ing => {
+        const item = state.list.addItem(ing.count, ing.unit, ing.ingredient);
+        listView.renderItem(item);
+    });
+
+
+}
+
+// handle delete and update shopping list item events
+
+elements.shoppingList.addEventListener('click', e => {
+    // console.log(e.target.closest('data-itemid'));
+    const id = e.target.closest('.shopping__item').dataset.itemid;
+    
+    // delete the item
+    if(e.target.matches('.shopping__delete, .shopping__delete *')){
+        
+        // delete from state
+        state.list.deleteItem(id);
+
+        // delete from UI
+        listView.deleteItem(id);
+    }
+    else if(e.target.matches('.shopping__count--value')){
+        const newValue = parseFloat(e.target.value);
+        if(newValue > 0){
+            state.list.updateCount(id, newValue);
+        }
+        else{
+            alert("Cannot shop for less then current quantity");
+            state.list.updateCount(id, 1);
+            e. target.value = 1;
+        }
+
+        // e.target.addEventListener('change', alert("change"));
+        
+    }
+});
+
+// document.querySelector('.shopping__count--value').addEventListener('change', alert("change"));
+
+
+// handling recipe button clicks
 elements.recipe.addEventListener('click', e => {
     if(e.target.matches('.btn--decrease, .btn-decrease *')){
         // decrease button is clicked
-        if(state.recipe.servings > 1)
+        if(state.recipe.servings > 1){
             state.recipe.updateServings('dec');
+            recipeView.updateServingsIngredients(state.recipe);
+        }
     }
     else if(e.target.matches('.btn--increase, .btn-increase *')){
         // increase button is clicked
         state.recipe.updateServings('inc');
+        recipeView.updateServingsIngredients(state.recipe);
     }
-    recipeView.updateServingsIngredients(state.recipe);
+    else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
+        controlShoppingList();
+    }
+    
 
-    console.log(state.recipe);
 });
+
+
+// const l = new List();
+// window.l = l;
+// l.addItems()
