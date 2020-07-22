@@ -16,8 +16,6 @@ GLOBAL STATE OF THE APP
 - liked recipes
 */
 const state = {};
-window.state = state;
-
 
 /*
     SEARCH CONTROLLER
@@ -254,8 +252,3 @@ elements.recipe.addEventListener('click', e => {
     
 
 });
-
-
-// const l = new List();
-// window.l = l;
-// l.addItems()
