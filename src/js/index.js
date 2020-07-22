@@ -171,7 +171,46 @@ elements.shoppingList.addEventListener('click', e => {
     }
 });
 
-// document.querySelector('.shopping__count--value').addEventListener('change', alert("change"));
+/*
+    LIKES CONTROLLER
+*/
+
+const controlLike = () =>{
+
+    if(!state.likes) state.likes = new Likes();
+
+    const currentID = state.recipe.id;
+
+    // if recipe is not liked yet
+    if(!state.likes.isLiked(currentID)){
+        // add like to the state
+        const newLike = state.likes.addLike(
+            currentID,
+            state.recipe.title,
+            state.recipe.author,
+            state.recipe.img
+        );
+
+        // toggle the likes button/icon
+
+        // add the like to UI - likes list
+        console.log(state.likes);
+    }
+    // if recipe is already liked
+    else{
+
+        // remove like to the state
+        state.likes.deleteLike(currentID);
+
+        // toggle the likes button/icon
+
+        // remove the like to UI - likes list
+        console.log(state.likes);
+
+    }
+}
+
+
 
 
 // handling recipe button clicks
@@ -189,7 +228,12 @@ elements.recipe.addEventListener('click', e => {
         recipeView.updateServingsIngredients(state.recipe);
     }
     else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
+        //add ingredients to shopping list
         controlShoppingList();
+    }
+    else if(e.target.matches('.recipe__love, .recipe__love *')){
+        // call the like controller
+        controlLike();
     }
     
 
