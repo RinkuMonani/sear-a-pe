@@ -6,6 +6,8 @@ Example Seach:
 * Pizza
 * Pasta
 
+![](s1.gif)
+
 Thanks to Jonas Schmedtmann for designing the amazing UI and for guiding through the development of this project via. his 
 [Course](https://www.udemy.com/course/the-complete-javascript-course/) on **Udemy**.
 

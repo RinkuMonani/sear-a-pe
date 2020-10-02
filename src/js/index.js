@@ -100,8 +100,6 @@ const controlRecipe = async () => {
 
             // render results on UI
 
-            // console.log("recipe");
-            // console.log(state.recipe);
             stopLoader();
             
             recipeView.renderRecipe(
@@ -252,3 +250,5 @@ elements.recipe.addEventListener('click', e => {
     
 
 });
+
+console.log(document.querySelector('.header'));
