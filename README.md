@@ -2,11 +2,19 @@
 ### sear-a-pe enables you to Search a Recipe from the pool available at your finger tips.
 --------------------------
 
-Example Seach:  
-* Pizza
-* Pasta
+#### Let us _gif_ through the app
 
-![](s1.gif)
+* Search your dish e.g, Pizza, Pasta
+![](readme-gifs/s1.gif)
+
+* View the recipe and adjust the ingredients to suit your needs
+![](readme-gifs/s2.gif)
+
+* Make your shopping list
+![](readme-gifs/s3.gif)
+
+* View your favorite recipes from the list
+![](readme-gifs/s4.gif)
 
 Thanks to Jonas Schmedtmann for designing the amazing UI and for guiding through the development of this project via. his 
 [Course](https://www.udemy.com/course/the-complete-javascript-course/) on **Udemy**.
